@@ -8,6 +8,12 @@ venv/
 ENV/
 env/
 
+# Pytest
+.pytest_cache/
+htmlcov/
+.coverage
+.coverage.*
+
 # Output
 exchange_rates.html
 
@@ -16,3 +22,7 @@ exchange_rates.html
 .idea/
 *.swp
 *.swo
+
+# OS
+.DS_Store
+Thumbs.db
