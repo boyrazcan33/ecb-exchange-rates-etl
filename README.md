@@ -17,7 +17,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-Output will be saved to `exchange_rates.html`
+**Output:** `exchange_rates.html` will be generated in the project root.
 
 ## Project Structure
 ```
