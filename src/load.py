@@ -24,6 +24,9 @@ def create_html_table(daily_data: Dict[str, str], mean_rates: Dict[str, float]) 
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
+        tr:hover {
+            background-color: #e6f2ff;
+        }
     </style>
 </head>
 <body>
@@ -37,10 +40,12 @@ def create_html_table(daily_data: Dict[str, str], mean_rates: Dict[str, float]) 
     
     for currency in daily_data.keys():
         if currency != 'Date':
+            rate = daily_data.get(currency, 'N/A')
+            mean_rate = mean_rates.get(currency, 0.0)
             html += f"""        <tr>
             <td>{currency}</td>
-            <td>{daily_data[currency]}</td>
-            <td>{mean_rates[currency]:.4f}</td>
+            <td>{rate}</td>
+            <td>{mean_rate:.4f}</td>
         </tr>
 """
     
@@ -51,6 +56,14 @@ def create_html_table(daily_data: Dict[str, str], mean_rates: Dict[str, float]) 
     return html
 
 
-def save_to_file(content: str, filename: str) -> None:
-    with open(filename, 'w', encoding='utf-8') as f:
-        f.write(content)
+def save_to_file(content: str, filename: str) -> bool:
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            f.write(content)
+        return True
+    except IOError as e:
+        print(f"Error writing to file {filename}: {e}")
+        return False
+    except Exception as e:
+        print(f"Unexpected error saving file: {e}")
+        return False
