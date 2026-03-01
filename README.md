@@ -7,17 +7,25 @@ A simple ETL pipeline that extracts Euro foreign exchange rates from the Europea
 - Python 3.12+
 - See requirements.txt for dependencies
 
-## Installation
+## ⚡ Quick Start
 ```bash
-pip install -r requirements.txt
-```
+# Clone the repository
+git clone https://github.com/boyrazcan33/ecb-exchange-rates-etl.git
+cd ecb-exchange-rates-etl
 
-## Usage
-```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the ETL pipeline
 python main.py
 ```
 
-**Output:** `exchange_rates.html` will be generated in the project root.
+**➡️ Output file:** `exchange_rates.html` (generated in project root)
+
+## Running Tests
+```bash
+pytest tests/ -v
+```
 
 ## Project Structure
 ```
@@ -44,10 +52,16 @@ ecb-etl-project/
 - Comprehensive error handling for API failures
 - Unit tests with pytest
 
-## Running Tests
-```bash
-pytest tests/ -v
-```
+## Sample Output
+
+The program generates an HTML table with the following format:
+
+| Currency Code | Rate    | Mean Historical Rate |
+|---------------|---------|---------------------|
+| USD           | 1.1805  | 1.1823              |
+| SEK           | 10.6643 | 9.6907              |
+| GBP           | 0.87630 | 0.7849              |
+| JPY           | 184.13  | 131.6950            |
 
 ## Development Notes
 
