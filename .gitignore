@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+
+# Output
+exchange_rates.html
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
